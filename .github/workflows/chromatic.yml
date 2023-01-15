@@ -12,7 +12,11 @@ jobs:
     # Job steps
     steps:
       - uses: actions/checkout@v1
-      - run: yarn
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@v1
         # Options required for Chromatic's GitHub Action
